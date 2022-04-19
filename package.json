@@ -1,0 +1,20 @@
+{
+  "name": "cic3module",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --coverage",
+    "refreshVSToken": "vsts-npm-auth -config .npmrc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "jest": "^27.5.1",
+    "supertest": "^6.2.2"
+  },
+  "dependencies": {
+    "@types/client-api": "^0.28.5"
+  }
+}
