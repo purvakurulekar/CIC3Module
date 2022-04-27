@@ -1,0 +1,27 @@
+# Node.js with webpack
+# Build a Node.js project using the webpack CLI.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+
+resources:
+  repositories:
+    - repository: templates
+      type: git
+      name: 'Content Platform/client-deployment-shared'
+
+trigger: 
+  - main
+
+pool:
+  vmImage: ubuntu-latest
+
+stages:
+- template: templates/libs/deployment-stages.yml@templates
+  parameters:
+    deployment_token_dev: $(deployment_token_dev)
+    deployment_token_stg: $(deployment_token_stg)
+    deployment_token_prod: $(deployment_token_prod)
+    build_dev: false
+    build_prod: false
+    deployment_app_location: dist/lib/
+    stage_validation_notify_users: 'lantth@2020spaces.com'
